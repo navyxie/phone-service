@@ -48,4 +48,16 @@ describe('#phoneService()',function(){
 			done();
 		});
 	});
+	it('should be ok',function(){
+		PS.isPhone(15900000000).should.be.ok();
+	});
+	it('should be ok',function(){
+		PS.isChinaMobile(15900000000).should.be.ok();
+	});
+	it('should be not ok',function(){
+		PS.isChinaTelecom(15900000000).should.be.false();
+	});
+	it('should be not ok',function(){
+		PS.isChinaUnicom(15900000000).should.be.false();
+	});
 })
