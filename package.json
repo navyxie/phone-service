@@ -4,7 +4,7 @@
   "description": "手机号查询运营商，查询归属地",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/index.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,13 @@
     "电信"
   ],
   "devDependencies": {
-    "mocha": "*",
-    "should": "*"
+    "mocha": "^2.2.5",
+    "should": "^7.0.2"
+  },
+  "dependencies":{
+    "request":"^2.60.0",
+    "iconv-lite":"^0.4.11",
+    "xml2js":"^0.4.9"
   },
   "author": {
     "name": "navyxie"
