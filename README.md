@@ -4,16 +4,16 @@
 
 ## API
 
-### 查询手机号详细信息, 异步函数
-[query]("#query")
-### 判断是否为合法手机号,同步函数
-[isPhone]("#isPhone")
-### 判断是否为中国移动手机号,同步函数
-[isChinaMobile]("#isChinaMobile")
-### 判断是否为中国电信手机号,同步函数
-[isChinaTelecom]("#isChinaTelecom")
-### 判断是否为中国联通手机号,同步函数
-[isChinaUnicom]("#isChinaUnicom")
+#### 查询手机号详细信息, 异步函数
+[query](#query)
+#### 判断是否为合法手机号,同步函数
+[isPhone](#isPhone)
+#### 判断是否为中国移动手机号,同步函数
+[isChinaMobile](#isChinaMobile)
+#### 判断是否为中国电信手机号,同步函数
+[isChinaTelecom](#isChinaTelecom)
+#### 判断是否为中国联通手机号,同步函数
+[isChinaUnicom](#isChinaUnicom)
 
 <a name="query" />
 
@@ -35,19 +35,19 @@ phoneService.isPhone(15900000000) === true
 
 ```js
 var phoneService = require('phone-service');
-phoneService.query(15900000000) === true
+phoneService.isChinaMobile(15900000000) === true
 ```
 
 <a name="isChinaTelecom" />
 
 ```js
 var phoneService = require('phone-service');
-phoneService.query(15900000000) === false;
+phoneService.isChinaTelecom(15900000000) === false;
 ```
 
 <a name="isChinaUnicom" />
 
 ```js
 var phoneService = require('phone-service');
-phoneService.query(15900000000) === false;
+phoneService.isChinaUnicom(15900000000) === false;
 ```
