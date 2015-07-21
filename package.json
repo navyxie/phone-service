@@ -1,0 +1,35 @@
+{
+  "name": "phone-service",
+  "version": "0.0.1",
+  "description": "手机号查询运营商，查询归属地",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/navyxie/phone-service.git"
+  },
+  "keywords": [
+    "phone",
+    "归属地",
+    "手机号",
+    "运营商"
+  ],
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "author": {
+    "name": "navyxie"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/navyxie/phone-service",
+  "maintainers": [
+    {
+      "name": "navyxie",
+      "email": "navyxie2010@gmail.com"
+    }
+  ],
+  "directories": {}
+}
