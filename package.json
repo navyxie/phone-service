@@ -1,6 +1,6 @@
 {
   "name": "phone-service",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "手机号查询运营商，查询归属地",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,10 @@
     "phone",
     "归属地",
     "手机号",
-    "运营商"
+    "运营商",
+    "移动",
+    "联通",
+    "电信"
   ],
   "devDependencies": {
     "mocha": "*",

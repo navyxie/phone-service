@@ -2,7 +2,7 @@
 ## use case
 ```js
 var phoneService = require('phone-service');
-phoneService(15900000000,function(err,data){
-	//data=>{supplier:"中国移动",phone:15900000000}
+phoneService.query(15900000000,function(err,data){
+	//data=>{supplier:"中国移动",phone:15900000000,abbreviation:'China_Mobile'}
 });
 ```
