@@ -24,6 +24,7 @@
 
 [util](#util)
 
+### API使例
 
 <a name="query" />
 查询手机号详细信息, 异步函数
@@ -68,6 +69,7 @@ var option = {model:3};
 phoneService.query(15900000000,option,function(err,data){
 	//data=>{supplier:"中国移动",provice:'广东',city:'中山',phone:15900000000,abbreviation:'China_Mobile'}
 });
+```
 
 <a name="isPhone" />
 判断是否为合法手机号,同步函数
