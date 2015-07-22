@@ -24,7 +24,7 @@
 
 [util](#util)
 
-### API使例
+## API使用例子
 
 <a name="query" />
 查询手机号详细信息, 异步函数
