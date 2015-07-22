@@ -18,18 +18,56 @@
 
 [isChinaUnicom](#isChinaUnicom)
 
+
 [plugin](#plugin)
+
 
 [util](#util)
 
+
 <a name="query" />
 查询手机号详细信息, 异步函数
+
+可选参数option说明
+
+```js
+/**
+*option = > {
+	parallel:2,//插件通道并发请求数,默认是2
+	timeout:null,//响应超时时间
+	model:0,//获取手机号码信息模式,目前支持3种：0->只获取手机号运营商,1->获取手机号运营商以及省份,2->获取手机号运营商、省份以及城市(地级市)
+	plugins:[]//指定使用哪些插件通道(当某些通道出问题时，用户可以指定只用这些通道)
+}
+*/
+```
+
+查询手机号运营商
+
 ```js
 var phoneService = require('phone-service');
-phoneService.query(15900000000,function(err,data){
+var option = {};
+phoneService.query(15900000000,option,function(err,data){
 	//data=>{supplier:"中国移动",phone:15900000000,abbreviation:'China_Mobile'}
 });
 ```
+
+查询手机号运营商以及省份
+
+```js
+var phoneService = require('phone-service');
+var option = {model:1};
+phoneService.query(15900000000,option,function(err,data){
+	//data=>{supplier:"中国移动",provice:'广东',phone:15900000000,abbreviation:'China_Mobile'}
+});
+```
+查询手机号运营商、省份以及城市(地级市)
+
+```js
+var phoneService = require('phone-service');
+var option = {model:3};
+phoneService.query(15900000000,option,function(err,data){
+	//data=>{supplier:"中国移动",provice:'广东',city:'中山',phone:15900000000,abbreviation:'China_Mobile'}
+});
 
 <a name="isPhone" />
 判断是否为合法手机号,同步函数
