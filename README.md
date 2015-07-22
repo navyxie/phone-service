@@ -1,5 +1,7 @@
 # 通过手机号查询运营商以及号码归属地
 
+在很多行业很多项目，比如电商，比如金融，比如O2O等，在用户注册这一块会经常用到手机号。如何判断一个手机号是否存在？在特殊产品需求条件下，我们需要区分用户的运营商（移动、联通、电信），甚至区分用户省份，乃至城市，来方便产品，运营同学对用户进行地区化，个性化服务。为了解决这样的业务、产品需求，就动手写了这个模块。
+
 ### 安装:npm install phone-service
 
 ## API
@@ -18,16 +20,56 @@
 
 [isChinaUnicom](#isChinaUnicom)
 
+
 [plugin](#plugin)
+
 
 [util](#util)
 
+## API使用例子
+
 <a name="query" />
 查询手机号详细信息, 异步函数
+
+可选参数option说明
+
+```js
+/**
+*option = > {
+	parallel:2,//插件通道并发请求数,默认是2
+	timeout:null,//响应超时时间
+	model:0,//获取手机号码信息模式,目前支持3种：0->只获取手机号运营商,1->获取手机号运营商以及省份,2->获取手机号运营商、省份以及城市(地级市)
+	plugins:[]//指定使用哪些插件通道(当某些通道出问题时，用户可以指定只用这些通道)
+}
+*/
+```
+
+查询手机号运营商
+
 ```js
 var phoneService = require('phone-service');
-phoneService.query(15900000000,function(err,data){
+var option = {};
+phoneService.query(15900000000,option,function(err,data){
 	//data=>{supplier:"中国移动",phone:15900000000,abbreviation:'China_Mobile'}
+});
+```
+
+查询手机号运营商以及省份
+
+```js
+var phoneService = require('phone-service');
+var option = {model:1};
+phoneService.query(15900000000,option,function(err,data){
+	//data=>{supplier:"中国移动",provice:'广东',phone:15900000000,abbreviation:'China_Mobile'}
+});
+```
+查询手机号运营商、省份以及城市(地级市)
+
+```js
+var phoneService = require('phone-service');
+var option = {model:3};
+phoneService.query(15900000000,option,function(err,data){
+	//data=>{supplier:"中国移动",provice:'广东',city:'中山',phone:15900000000,abbreviation:'China_Mobile'}
 });
 ```
 
