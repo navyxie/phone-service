@@ -4,7 +4,8 @@
   "description": "手机号查询运营商，查询归属地",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+    "test": "make test",
+    "test-cover":"node ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha  -- --timeout 500000 --recursive test/ --bail"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,8 @@
     "iconv-lite":"^0.4.11",
     "xml2js":"^0.4.9",
     "async":"^1.4.0",
-    "underscore":"^1.8.3"
+    "underscore":"^1.8.3",
+    "istanbul":"^0.3.17"
   },
   "author": {
     "name": "navyxie"
