@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "make test",
-    "test-cover":"node ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha  -- --timeout 500000 --recursive test/ --bail"
+    "cover": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha  --report lcovonly -- --timeout 50000 --recursive test/ && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -22,15 +22,17 @@
   ],
   "devDependencies": {
     "mocha": "^2.2.5",
+    "coveralls": "^2.11.3",
+    "istanbul": "^0.3.17",
+    "mocha-lcov-reporter": "0.0.2",
     "should": "^7.0.2"
   },
-  "dependencies":{
-    "request":"^2.60.0",
-    "iconv-lite":"^0.4.11",
-    "xml2js":"^0.4.9",
-    "async":"^1.4.0",
-    "underscore":"^1.8.3",
-    "istanbul":"^0.3.17"
+  "dependencies": {
+    "async": "^1.4.0",
+    "iconv-lite": "^0.4.11",
+    "request": "^2.60.0",
+    "underscore": "^1.8.3",
+    "xml2js": "^0.4.9"
   },
   "author": {
     "name": "navyxie"
