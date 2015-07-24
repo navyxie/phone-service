@@ -7,7 +7,7 @@
 
 ### 安装:npm install phone-service
 
-## API
+## [API](#API)
 
 [query](#query)
 
@@ -37,6 +37,8 @@
 
 [util](#util)
 
+
+<a name="API" />
 ## API使用例子
 
 <a name="query" />
