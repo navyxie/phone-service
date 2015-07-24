@@ -6,27 +6,24 @@ var pluginParam = {
 		var scriptIndex = data.indexOf('<script');
 		((scriptIndex !== -1) && (data = data.substr(0,scriptIndex)));
 		var resObj;
+		var result = {};
 		try{
 			resObj = JSON.parse(data);
 		}catch(e){
-			cb('JSON parse error : '+data);
+			cb('360 plugin JSON parse error : '+data);
 		}
 		if(resObj.code === 0){
-			cb(null,resObj.data);
+			result[util.getSupplierKey()] =  resObj.data.sp;
+			result[util.getProvinceKey()] =  resObj.data.province;
+			result[util.getCityKey()] =  resObj.data.city
+			cb(null,result);
 		}else{
 			cb("360 plugin request error : ",data);
 		}
-		
-	},
-	keyMap:{
-
 	},
 	url:function(phone){
 		return 'http://cx.shouji.360.cn/phonearea.php?number='+phone;
 	},
 	model:2
 }
-pluginParam['keyMap'][util.getSupplierKey()] = 'sp';
-pluginParam['keyMap'][util.getProvinceKey()] = 'province';
-pluginParam['keyMap'][util.getCityKey()] = 'city';
 module.exports = pluginParam;
