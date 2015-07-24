@@ -24,8 +24,16 @@
 [isChinaUnicom](#isChinaUnicom)
 
 
-[plugin](#plugin)
+## [插件编写](#plugin)
 
+[add](#add)
+
+[check](#check)
+
+[delete](#delete)
+
+
+## 工具函数
 
 [util](#util)
 
@@ -104,14 +112,16 @@ var phoneService = require('phone-service');
 phoneService.isChinaUnicom(15900000000) === false;
 ```
 
-## 高级功能
+<a name="plugin" />
+## 插件编写(高级功能)
 
 ### 插件扩展开发
 
 如果模块自带的插件不满足或者被插件对应的平台屏蔽了，使用者可以自己开发插件来完成工作。
 
-<a name="plugin" />
-插件对象,插件扩展开发
+<a name="add" />
+增加插件
+
 ```js
 //插件开发 demo
 var phoneService = require('phone-service');
@@ -120,13 +130,19 @@ var plugin = phoneService.plugin;//插件对象
 var pluginMock = {
 	name:'navy',//插件名字
 	parse:function(phone,cb){
-		//数据解析，返回json
-		cb(null,{supplier:"移动"});
-	},
-	keyMap:{}//手机运营商，省份以及城市的key与自身parse函数返回的结果匹配，统一最终返回数据对象的key.
-	model:1,
+		//数据解析，返回json.当所编写的插件:
+		//1.只返回手机号服务商(即插件的model定义为0)时，返回的对象中必须包含key:util.getSupplierKey()
+		//2.返回手机号服务商和归属省份(即插件的model定义为1)时,返回的对象中必须包含key:util.getSupplierKey(),util.getProvinceKey()
+		//3.返回手机号服务商和归属省份以及归属城市(即插件的model定义为2)时,返回的对象中必须包含key:util.getSupplierKey(),util.getProvinceKey(),util.getCityKey()
+		var result = {};
+		result[util.getSupplierKey()] = '移动';
+		result[util.getProvinceKey()] = '广东';
+		result[util.getCityKey()] = '广州';
+		cb(null,result);
+	}
+	model:2,//model可取值:0,1,2，说明请看上面parse函数
 	url:function(phone){
-		return 'http://xxxx.com?phone='+phone;
+		return 'http://xxxx.com?phone='+phone;//返回请求的url
 	},
 	option:{
 		//node request module request method param.
@@ -134,33 +150,43 @@ var pluginMock = {
 		encoding:null
 	}
 };
-pluginMock['keyMap'][util.getSupplierKey()] = 'supplier';
 plugin.add(pluginMock);//注册插件
+```
+
+<a name="check" />
+检查插件编写是否正确
+
+```js
+plugin.check('navy',function(err,data){
+	if(!err){
+		//plugin is ok;
+	}
+})
 //使用刚才注册的插件
 phoneService.query(15900000000,{plugins:['navy']},function(err,data){
 	//todo
 })
 ```
 
-### 卸载模块自带的插件
-
-当模块自带的模块出问题时（比如被插件对应的平台屏蔽），这时候在调用api前可以卸载有问题的模块
+<a name="delete" />
+卸载模块自带的插件
+当模块自带的插件或者使用者自己开发的插件出问题时（比如被插件对应的平台屏蔽），这时候在调用api前可以卸载有问题的模块
 
 ```js
-var phoneService = require('phone-service');
-var plugin = phoneService.plugin;//插件对象
-plugin.delete('360');
+plugin.delete('navy');//卸载自己写的插件
+plugin.delete('360');//卸载模块自带的插件
 //调用query方式时将不再使用360插件了
 phoneService.query(15900000000,function(err,data){
 	//todo
 })
 ```
 
+### 工具对象
+
 <a name="util" />
-工具对象,插件扩展开发
 ```js
 var phoneService = require('phone-service');
 phoneService.util.getSupplierKey();//获取服务商返回的key
-phoneService.util.getSupplierKey();//获取省份返回的key
-phoneService.util.getSupplierKey();//获取城市（地级市）返回的key
+phoneService.util.getProvinceKey();//获取省份返回的key
+phoneService.util.getCityKey();//获取城市（地级市）返回的key
 ```
