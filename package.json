@@ -1,6 +1,6 @@
 {
   "name": "phone-service",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "手机号查询运营商，查询归属地",
   "main": "index.js",
   "scripts": {

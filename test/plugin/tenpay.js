@@ -5,8 +5,10 @@ describe('#tenpay()',function(){
 	it('should be ok',function(done){
 		plugin.add(tenpayPlugin);
 		plugin.exe('tenpay',15900000000,function(err,data){
-			console.log(data);
-			done(err);
+			if(err){
+				console.log('tenpay plugin error:',err);
+			}			
+			done();
 		});
 	})
 });
