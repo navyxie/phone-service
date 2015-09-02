@@ -15,7 +15,7 @@ var pluginParam = {
 					result[util.getCityKey()] = data.root.city[0];
 					cb(null,result);
 				}else{
-					cb('tenpay plugin return data error, data is not a object : '+data);
+					cb('tenpay plugin return data error, data is not a object : '+JSON.stringify(data));
 				}
 			}
 		})
