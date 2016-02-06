@@ -195,4 +195,4 @@ phoneService.util.getCityKey();//获取城市（地级市）返回的key
 
 
 **发布logs**
-- 3.0.0 修复重大的bug,plugin下try catch 没有return。
+- 3.0.0 修复重大的bug,plugin下try catch 没有return。建议立马升级至3.0.0。
