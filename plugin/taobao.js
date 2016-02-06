@@ -8,7 +8,7 @@ var pluginParam = {
 		try{
 			parseData = eval(data);
 		}catch(e){
-			cb('taobao plugin eval error : '+data);
+			return cb('taobao plugin eval error : '+data);
 		}
 		if(util.isObject(parseData)){
 			result[util.getSupplierKey()] = parseData.catName;

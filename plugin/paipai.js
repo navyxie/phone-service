@@ -8,7 +8,7 @@ var pluginParam = {
 		try{
 			parseData = eval(data);
 		}catch(e){
-			cb('paipai plugin eval error : '+data);
+			return cb('paipai plugin eval error : '+data);
 		}
 		if(util.isObject(parseData)){
 			result[util.getSupplierKey()] = parseData.isp;

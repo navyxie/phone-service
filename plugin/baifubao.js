@@ -11,7 +11,7 @@ var pluginParam = {
 		try{
 			parseData = eval(data);
 		}catch(e){
-			cb('baifubao plugin eval error : '+data);
+			return cb('baifubao plugin eval error : '+data);
 		}
 		if(util.isObject(parseData) && util.isObject(parseData.data)){
 			result[util.getSupplierKey()] = parseData.data.operator;
