@@ -192,3 +192,7 @@ phoneService.util.getSupplierKey();//获取服务商返回的key
 phoneService.util.getProvinceKey();//获取省份返回的key
 phoneService.util.getCityKey();//获取城市（地级市）返回的key
 ```
+
+
+**发布logs**
+- 3.0.0 修复重大的bug,plugin下try catch 没有return。
