@@ -10,7 +10,7 @@ var pluginParam = {
 		try{
 			resObj = JSON.parse(data);
 		}catch(e){
-			cb('360 plugin JSON parse error : '+data);
+			return cb('360 plugin JSON parse error : '+data);
 		}
 		if(resObj.code === 0){
 			result[util.getSupplierKey()] =  resObj.data.sp;
