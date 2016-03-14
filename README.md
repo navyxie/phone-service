@@ -49,7 +49,7 @@
 ```js
 /**
 *option = > {
-	parallel:2,//插件通道并发请求数,默认是2
+	parallel:2,//插件通道并发请求数,默认是2,当为0时使用最大(所有可用插件)并发数同时发起查询请求。
 	timeout:null,//响应超时时间
 	model:0,//获取手机号码信息模式,目前支持3种：0->只获取手机号运营商,1->获取手机号运营商以及省份,2->获取手机号运营商、省份以及城市(地级市)
 	plugins:[]//指定使用哪些插件通道(当某些通道出问题时，用户可以指定只用这些通道)
@@ -80,7 +80,7 @@ phoneService.query(15900000000,option,function(err,data){
 
 ```js
 var phoneService = require('phone-service');
-var option = {model:3};
+var option = {model:2};
 phoneService.query(15900000000,option,function(err,data){
 	//data=>{supplier:"中国移动",provice:'广东',city:'中山',phone:15900000000,abbreviation:'China_Mobile'}
 });
