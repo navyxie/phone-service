@@ -33,6 +33,17 @@ describe('#phoneService()',function(){
 			done(err);
 		});
 	});
+	it('should be ok',function(done){
+		PS.query(15900000000,{model:2,parallel:0},function(err,data){
+			console.log(data);
+			should.not.exist(err);
+			data.supplier.should.be.equal('中国移动');
+			data.provice.should.be.containEql('广东');
+			data.city.should.be.containEql('中山');
+			data.abbreviation.should.be.equal('China_Mobile');
+			done(err);
+		});
+	});
 	it('should be ok',function(){
 		plugin.add(util.loadPlugin('static'));
 		PS.isPhone(15900000000).should.be.ok();
