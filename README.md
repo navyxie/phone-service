@@ -193,6 +193,24 @@ phoneService.util.getProvinceKey();//获取省份返回的key
 phoneService.util.getCityKey();//获取城市（地级市）返回的key
 ```
 
+## test
+```js
+//test
+npm test
+//code coverage
+//npm run cov
+```
+
+## code coverage
+
+```html
+=============================== Coverage summary ===============================
+Statements   : 87.41% ( 354/405 )
+Branches     : 80.83% ( 156/193 )
+Functions    : 95.95% ( 71/74 )
+Lines        : 87.41% ( 354/405 )
+================================================================================
+```
 
 **发布logs**
 - 3.0.1 添加parallel参数为0时开启最大（当前支持插件）并发数同时发起查询请求
