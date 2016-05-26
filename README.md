@@ -1,8 +1,6 @@
 # 通过手机号查询运营商以及号码归属地
 
-[![Build Status via Travis CI](https://travis-ci.org/navyxie/phone-service.svg?branch=master)](https://travis-ci.org/navyxie/phone-service)
-
-[![Coverage Status](https://coveralls.io/repos/github/navyxie/Vue-order/badge.svg?branch=master)](https://coveralls.io/github/navyxie/phone-service?branch=master)
+[![Build Status via Travis CI](https://travis-ci.org/navyxie/phone-service.svg?branch=master)](https://travis-ci.org/navyxie/phone-service) [![Coverage Status](https://coveralls.io/repos/github/navyxie/Vue-order/badge.svg?branch=master)](https://coveralls.io/github/navyxie/phone-service?branch=master)
 
 在很多行业很多项目，比如电商，比如金融，比如O2O等，在用户注册这一块会经常用到手机号。如何判断一个手机号是否存在？在特殊产品需求条件下，我们需要区分用户的运营商（移动、联通、电信），甚至区分用户省份，乃至城市，来方便产品，运营同学对用户进行地区化，个性化服务。为了解决这样的业务、产品需求，就动手写了这个模块。
 
