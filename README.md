@@ -8,28 +8,24 @@
 
 ## [API](#API)
 
-[query](#query)
+- [query](#query)
 
+- [isPhone](#isPhone)
 
-[isPhone](#isPhone)
+- [isChinaMobile](#isChinaMobile)
 
+- [isChinaTelecom](#isChinaTelecom)
 
-[isChinaMobile](#isChinaMobile)
-
-
-[isChinaTelecom](#isChinaTelecom)
-
-
-[isChinaUnicom](#isChinaUnicom)
+- [isChinaUnicom](#isChinaUnicom)
 
 
 ## [插件编写](#plugin)
 
-[add](#add)
+- [add](#add)
 
-[check](#check)
+- [check](#check)
 
-[delete](#delete)
+- [delete](#delete)
 
 
 ## 工具函数
@@ -75,6 +71,7 @@ phoneService.query(15900000000,option,function(err,data){
 	//data=>{supplier:"中国移动",provice:'广东',phone:15900000000,abbreviation:'China_Mobile'}
 });
 ```
+
 查询手机号运营商、省份以及城市(地级市)
 
 ```js
@@ -86,28 +83,36 @@ phoneService.query(15900000000,option,function(err,data){
 ```
 
 <a name="isPhone" />
+
 判断是否为合法手机号,同步函数
+
 ```js
 var phoneService = require('phone-service');
 phoneService.isPhone(15900000000) === true
 ```
 
 <a name="isChinaMobile" />
+
 判断是否为中国移动手机号,同步函数
+
 ```js
 var phoneService = require('phone-service');
 phoneService.isChinaMobile(15900000000) === true
 ```
 
 <a name="isChinaTelecom" />
+
 判断是否为中国电信手机号,同步函数
+
 ```js
 var phoneService = require('phone-service');
 phoneService.isChinaTelecom(15900000000) === false;
 ```
 
 <a name="isChinaUnicom" />
+
 判断是否为中国联通手机号,同步函数
+
 ```js
 var phoneService = require('phone-service');
 phoneService.isChinaUnicom(15900000000) === false;
@@ -212,5 +217,6 @@ Lines        : 87.41% ( 354/405 )
 ```
 
 **发布logs**
+- 4.0.0 query api 支持promise方式调用
 - 3.0.1 添加parallel参数为0时开启最大（当前支持插件）并发数同时发起查询请求
 - 3.0.0 修复重大的bug,plugin下try catch 没有return。建议立马升级至3.0.0。
