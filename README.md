@@ -202,6 +202,7 @@ phoneService.query(15900000000,function(err,data){
 ### 工具对象
 
 <a name="util" />
+
 ```js
 var phoneService = require('phone-service');
 phoneService.util.getSupplierKey();//获取服务商返回的key
