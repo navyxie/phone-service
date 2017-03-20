@@ -37,7 +37,8 @@
 ## API使用例子
 
 <a name="query" />
-查询手机号详细信息, 异步函数
+
+[query]: 查询手机号详细信息, 异步函数
 
 可选参数option说明
 
@@ -84,7 +85,7 @@ phoneService.query(15900000000,option,function(err,data){
 
 <a name="isPhone" />
 
-判断是否为合法手机号,同步函数
+[isPhone]: 判断是否为合法手机号,同步函数
 
 ```js
 var phoneService = require('phone-service');
@@ -93,7 +94,7 @@ phoneService.isPhone(15900000000) === true
 
 <a name="isChinaMobile" />
 
-判断是否为中国移动手机号,同步函数
+[isChinaMobile]: 判断是否为中国移动手机号,同步函数
 
 ```js
 var phoneService = require('phone-service');
@@ -102,7 +103,7 @@ phoneService.isChinaMobile(15900000000) === true
 
 <a name="isChinaTelecom" />
 
-判断是否为中国电信手机号,同步函数
+[isChinaTelecom]: 判断是否为中国电信手机号,同步函数
 
 ```js
 var phoneService = require('phone-service');
@@ -111,7 +112,7 @@ phoneService.isChinaTelecom(15900000000) === false;
 
 <a name="isChinaUnicom" />
 
-判断是否为中国联通手机号,同步函数
+[isChinaUnicom]: 判断是否为中国联通手机号,同步函数
 
 ```js
 var phoneService = require('phone-service');
@@ -126,7 +127,8 @@ phoneService.isChinaUnicom(15900000000) === false;
 如果模块自带的插件不满足或者被插件对应的平台屏蔽了，使用者可以自己开发插件来完成工作。
 
 <a name="add" />
-增加插件
+
+[add]: 增加插件
 
 ```js
 //插件开发 demo
@@ -160,7 +162,8 @@ plugin.add(pluginMock);//注册插件
 ```
 
 <a name="check" />
-检查插件编写是否正确
+
+[check]: 检查插件编写是否正确
 
 ```js
 plugin.check('navy',function(err,data){
@@ -175,7 +178,9 @@ phoneService.query(15900000000,{plugins:['navy']},function(err,data){
 ```
 
 <a name="delete" />
-卸载模块自带的插件
+
+[delete]: 卸载模块自带的插件
+
 当模块自带的插件或者使用者自己开发的插件出问题时（比如被插件对应的平台屏蔽），这时候在调用api前可以卸载有问题的模块
 
 ```js
