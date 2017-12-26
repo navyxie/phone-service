@@ -9,4 +9,11 @@ describe('#360()', function() {
       done(err);
     });
   })
+  it('should be ok', function(done) {
+    plugin.add(cn360Plugin);
+    plugin.exe('360', 18612596520, function(err, data) {
+      console.log(data);
+      done(err);
+    });
+  })
 });
