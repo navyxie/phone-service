@@ -7,13 +7,13 @@ describe('#plugin()', function() {
   it('#getAll()', function() {
     plugin.reset();
     plugin.add(util.loadPlugin('360'));
-    plugin.add(util.loadPlugin('paipai'));
+    // plugin.add(util.loadPlugin('paipai'));
     plugin.add(util.loadPlugin('taobao'));
-    plugin.getAll().key.length.should.be.equal(3);
+    plugin.getAll().key.length.should.be.equal(2);
   });
   it('#delete()', function() {
     plugin.delete('360');
-    plugin.getAll().key.length.should.be.equal(2);
+    plugin.getAll().key.length.should.be.equal(1);
   });
   describe('get', function() {
     before(function() {
