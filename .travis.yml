@@ -3,8 +3,9 @@ language: node_js
 repo_token: MqyCLJqYSq6z5PEi10j3bUopYjitkfTe8 # 从coveralls.io获取
 
 node_js:  
-
-     - 0.10.35
+     - 6
+     - 7
+     - 8
 script: make test
 
 after_script: npm run cov

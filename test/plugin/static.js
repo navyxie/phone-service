@@ -43,6 +43,14 @@ describe('#static()', function() {
       done(err);
     });
   });
+  it('should be ok', function(done) {
+    plugin.add(staticPlugin);
+    plugin.exe('static', 17637469560, function(err, data) {
+      should.not.exist(err);
+      data.supplier.should.be.equal('中国联通');
+      done(err);
+    });
+  });
   it('should be not ok', function(done) {
     plugin.add(staticPlugin);
     plugin.exe('static', 1810000000, function(err, data) {
