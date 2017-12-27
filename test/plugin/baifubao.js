@@ -9,4 +9,11 @@ describe('#baifubao()', function() {
       done(err);
     });
   })
+  it('should be ok', function(done) {
+    plugin.add(baifubaoPlugin);
+    plugin.exe('baifubao', 18612596520, function(err, data) {
+      console.log(data);
+      done(err);
+    });
+  })
 });

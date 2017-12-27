@@ -9,4 +9,11 @@ describe('#taobao()', function() {
       done(err);
     });
   })
+  it('should be ok', function(done) {
+    plugin.add(taobaoPlugin);
+    plugin.exe('taobao', 18612596520, function(err, data) {
+      console.log(data);
+      done(err);
+    });
+  })
 });
