@@ -5,7 +5,7 @@ var util = require('../../lib/util');
 describe('#phoneService()', function() {
   it('should be ok', function(done) {
     PS.query(15900000000, {
-      plugins: ['360', 'tenpay', 'taobao', 'paipai']
+      plugins: ['360', 'tenpay', 'taobao']
     }, function(err, data) {
       console.log(data);
       should.not.exist(err);
@@ -22,6 +22,7 @@ describe('#phoneService()', function() {
       should.not.exist(err);
       data.supplier.should.be.equal('中国移动');
       data.provice.should.be.containEql('广东');
+      data.province.should.be.containEql('广东');
       data.abbreviation.should.be.equal('China_Mobile');
       done(err);
     });
@@ -34,6 +35,7 @@ describe('#phoneService()', function() {
       should.not.exist(err);
       data.supplier.should.be.equal('中国移动');
       data.provice.should.be.containEql('广东');
+      data.province.should.be.containEql('广东');
       data.city.should.be.containEql('中山');
       data.abbreviation.should.be.equal('China_Mobile');
       done(err);
@@ -48,8 +50,24 @@ describe('#phoneService()', function() {
       should.not.exist(err);
       data.supplier.should.be.equal('中国移动');
       data.provice.should.be.containEql('广东');
+      data.province.should.be.containEql('广东');
       data.city.should.be.containEql('中山');
       data.abbreviation.should.be.equal('China_Mobile');
+      done(err);
+    });
+  });
+  it('should be ok', function(done) {
+    PS.query(18612596520, {
+      model: 2,
+      parallel: 0
+    }, function(err, data) {
+      console.log(data);
+      should.not.exist(err);
+      data.supplier.should.be.equal('中国联通');
+      data.provice.should.be.containEql('北京');
+      data.province.should.be.containEql('北京');
+      data.city.should.be.containEql('北京');
+      data.abbreviation.should.be.equal('China_Unicom');
       done(err);
     });
   });
@@ -63,6 +81,7 @@ describe('#phoneService()', function() {
       done();
     })
   });
+
   it('should be not ok, promise', function(done) {
     PS.query(1590000000, {
       model: 1
